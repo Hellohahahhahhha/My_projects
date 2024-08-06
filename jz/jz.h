@@ -3,7 +3,9 @@
 
 #include<iostream>
 #include<vector>
+#include<cmath>
 #include"explain.h"
+#include"Permutation1.h"
 using namespace std;
 
 class JZ
@@ -11,16 +13,27 @@ class JZ
 public:
 	int _m,_n;
 	vector<vector<double> > A;
-	JZ(double* R,int m,int n):_m(m),_n(n){epl(R,A,m,n);}
+	JZ(double* R,int m,int n);
 	void show();
+	int determinant();//This time tells us that '_m == _n'
+	//英文意思是  行列式   
 	JZ operator +(JZ& B);
 	JZ operator -(JZ& B);
 	JZ operator *(int x);
 	JZ operator *(JZ& B);
-	
 private:
-	
+	int inversions(int i);//逆序数
+	vector<vector<int> > perm;
 };
+
+JZ::JZ(double* R,int m,int n)
+{
+	this->_m=m;
+	this->_n=n;
+	epl(R,A,m,n);
+	Permutation *p=new Permutation(n);
+	this->perm=p->getPermutation();
+}
 
 void JZ::show()
 {
@@ -85,6 +98,28 @@ JZ JZ::operator *(JZ& B)
 	}
 	epl(temp,T.A,T._m,T._n);
 	return T;
+}
+
+int JZ::determinant()
+{
+	double sum=0;
+	double tempT;
+	double tempS;
+	for(int i=0;i<perm.size();i++)
+	{
+		tempT=1;
+		for(int j=0;j<p[0];j++)
+		{
+			tempT*=A[i][(p[i][j])];
+		}
+		tempT*=pow(-1,inversions(i));
+		sum+=tempT;
+	}
+}
+
+int JZ::inversions(int i)
+{
+	
 }
 
 #endif
