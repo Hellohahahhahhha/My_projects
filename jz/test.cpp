@@ -8,17 +8,16 @@ using namespace std;
 
 int main()
 {
-	/*
-	double X[3*3]={1,2,3,1,2,0,1,0,0};
-	JZ A(X,3,3),B(X,3,3);
-	JZ C=A+B;
-	JZ P=A*B;
-	C.show();
+
+	double X[2*2]={5,2,7,3};
+	JZ A(X,2,2);
 	A.show();
-	P.show();
-	*/
-	Permutation* p=new Permutation(4);
-	p->permutate();
+
+    double d=A.determinant();
+    cout<<d<<endl;
+
+	Permutation* p=new Permutation(2);
+/*
 	vector<vector<int> > A=p->getPermutation();
 	for(int i=0;i<A.size();i++)
 	{
@@ -27,6 +26,6 @@ int main()
 			printf("%d ",A[i][j]);
 		}
 		cout<<endl;
-	}
+	}*/
 	return 0;
 }

@@ -5,15 +5,6 @@
 #include<iostream>
 using namespace std;
 
-void Show(int *arr,int size)
-{
-	for(int i=0;i<size;i++)
-	{
-		printf("%d ");
-	}
-	cout<<endl;
-}
-
 class Permutation
 {
 public:
@@ -50,6 +41,7 @@ Permutation::Permutation(int n)
 	{
 		arr[i]=i+1;
 	}
+	permutate();
 }
 
 int Permutation::P(int n)

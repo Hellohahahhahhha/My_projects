@@ -16,7 +16,7 @@ public:
 	JZ(double* R,int m,int n);
 	void show();
 	int determinant();//This time tells us that '_m == _n'
-	//英文意思是  行列式   
+	//英文意思是  行列式
 	JZ operator +(JZ& B);
 	JZ operator -(JZ& B);
 	JZ operator *(int x);
@@ -104,22 +104,33 @@ int JZ::determinant()
 {
 	double sum=0;
 	double tempT;
-	double tempS;
 	for(int i=0;i<perm.size();i++)
 	{
 		tempT=1;
-		for(int j=0;j<p[0];j++)
+		for(int j=0;j<perm[0].size();j++)
 		{
-			tempT*=A[i][(p[i][j])];
+			tempT*=A[j][(perm[i][j])-1];
 		}
 		tempT*=pow(-1,inversions(i));
 		sum+=tempT;
 	}
+	return sum;
 }
 
 int JZ::inversions(int i)
 {
-	
+    int n=0;
+    for(int x=1;x<perm[i].size();x++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            if(perm[i][j]>perm[i][x])
+            {
+                n++;
+            }
+        }
+    }
+    return n;
 }
 
 #endif
