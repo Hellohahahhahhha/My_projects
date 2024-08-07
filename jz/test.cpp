@@ -2,6 +2,7 @@
 #include<vector>
 #include"jz.h"
 #include"explain.h"
+#include"Fraction.h"
 #include"Permutation1.h"
 
 using namespace std;
@@ -9,14 +10,26 @@ using namespace std;
 int main()
 {
 
-	double X[2*2]={5,2,7,3};
-	JZ A(X,2,2);
+    cout<<"Announce:";
+    Fraction q(3,6);
+    string strF="1/2";
+    Fraction q1(strF);
+    q1.show();
+    q.show();
+    string k[2*1]={"1/2","3"};
+    return 0;
+
+
+/*
+	double X[3*3]={0,5,0,1,0,1,3,0,0};
+	JZ A(X,3,3);
 	A.show();
 
     double d=A.determinant();
     cout<<d<<endl;
 
 	Permutation* p=new Permutation(2);
+	*/
 /*
 	vector<vector<int> > A=p->getPermutation();
 	for(int i=0;i<A.size();i++)
@@ -27,5 +40,5 @@ int main()
 		}
 		cout<<endl;
 	}*/
-	return 0;
+
 }

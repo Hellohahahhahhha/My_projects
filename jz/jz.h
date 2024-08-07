@@ -6,6 +6,7 @@
 #include<cmath>
 #include"explain.h"
 #include"Permutation1.h"
+#include"Fraction.h"
 using namespace std;
 
 class JZ
@@ -15,6 +16,7 @@ public:
 	vector<vector<double> > A;
 	JZ(double* R,int m,int n);
 	void show();
+	JZ inverse();//逆矩阵
 	int determinant();//This time tells us that '_m == _n'
 	//英文意思是  行列式
 	JZ operator +(JZ& B);
@@ -22,6 +24,8 @@ public:
 	JZ operator *(int x);
 	JZ operator *(JZ& B);
 private:
+    int algebraic_cofactors(int i,int j);//代数余子式
+    JZ cofactors(int i,int j);//余子式
 	int inversions(int i);//逆序数
 	vector<vector<int> > perm;
 };
@@ -131,6 +135,11 @@ int JZ::inversions(int i)
         }
     }
     return n;
+}
+
+JZ JZ::inverse()
+{
+    int over=this->determinant();
 }
 
 #endif
