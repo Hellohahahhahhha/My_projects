@@ -5,10 +5,11 @@
 using namespace std;
 
 
-void epl(double *arr,vector<vector<double> >& _vec,int m,int n)
+template<class C>
+void epl(C *arr,vector<vector<C> >& _vec,int m,int n)
 {
-	vector<vector<double> > vec;
-	vector<double> T;
+	vector<vector<C> > vec;
+	vector<C> T;
 	int k=0;
 	for(int i=0;i<m;i++)
 	{

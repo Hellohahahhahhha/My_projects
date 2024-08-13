@@ -14,6 +14,7 @@ public:
     Fraction operator* (Fraction& f2);
     int _a,_b;
     void show();
+    bool isFree();
 private:
     void reduce();
 };
@@ -54,6 +55,11 @@ void Fraction::reduce()
             _b/=i;
         }
     }
+    if(_b<0)
+    {
+        _a*=-1;
+        _b*=-1;
+    }
 }
 
 Fraction Fraction::operator*(Fraction& f2)
@@ -67,7 +73,28 @@ Fraction Fraction::operator*(Fraction& f2)
 
 void Fraction::show()
 {
-    printf("%d/%d",_a,_b);
+    switch(this->_a)
+    {
+    case 0:
+        printf("%d ",0);break;
+    default:
+        if(_b==1)
+        {
+            printf("%d ",_a);
+        }
+        else
+        {
+            printf("%d/%d ",_a,_b);
+        }
+        break;
+    }
+}
+
+bool Fraction::isFree()
+{
+    if(this->_a==1 || this->_b==1)
+        return true;
+    return false;
 }
 
 #endif // _FRACTION_H_

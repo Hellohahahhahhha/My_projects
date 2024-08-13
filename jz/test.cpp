@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-
+/*
     cout<<"Announce:";
     Fraction q(3,6);
     string strF="1/2";
@@ -18,18 +18,21 @@ int main()
     q.show();
     string k[2*1]={"1/2","3"};
     return 0;
+*/
 
 
-/*
-	double X[3*3]={0,5,0,1,0,1,3,0,0};
+	int X[3*3]={0,5,0,1,0,1,3,0,0};
 	JZ A(X,3,3);
+    printf("A:\n");
 	A.show();
 
-    double d=A.determinant();
-    cout<<d<<endl;
+    int d=A.determinant();
+    printf("A的行列式是 %d\n",d);
+    JZ S=A.inverse();
+    printf("逆矩陣：\n");
+    S.show();
 
-	Permutation* p=new Permutation(2);
-	*/
+	//Permutation* p=new Permutation(2);
 /*
 	vector<vector<int> > A=p->getPermutation();
 	for(int i=0;i<A.size();i++)
